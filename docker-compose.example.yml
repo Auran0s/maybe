@@ -35,7 +35,7 @@ services:
       - app-storage:/rails/storage
 
     ports:
-      - 3001:3001
+      - 3333:3333
 
     restart: unless-stopped
 
