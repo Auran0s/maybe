@@ -53,6 +53,9 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    networks:
+      - dokploy-network
+      - maybe-network
 
   postgres:
     image: postgres:16
@@ -70,7 +73,14 @@ services:
       retries: 5
     ports:
       - 5432:5434
+    networks:
+      - maybe-network
 
 volumes:
   app-storage:
   postgres-data:
+networks:
+  dokploy-network:
+    external: true
+  maybe-network:
+    external: false
